@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVL Tree Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>AVL Tree Visualizer</h1>
+        <p class="subtitle">Insert or delete values and watch AVL balancing in real time</p>
+
+        <div class="controls">
+            <input type="number" id="valueInput" placeholder="Enter a number" autocomplete="off">
+            <button class="btn btn-insert" onclick="insertValue()">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Insert
+            </button>
+            <button class="btn btn-delete" onclick="deleteValue()">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Delete
+            </button>
+            <button class="btn btn-reset" onclick="resetTree()">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Reset
+            </button>
+        </div>
+
+        <div id="toast-container"></div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Nodes</span>
+                <span class="stat-value" id="statNodes">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Height</span>
+                <span class="stat-value" id="statHeight">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Last Rotation</span>
+                <span class="stat-value" id="rotationInfo">None</span>
+            </div>
+        </div>
+
+        <div id="tree-container">
+            <svg id="tree-svg"></svg>
+            <div id="empty-state">
+                <p>Enter a number above to build your AVL tree</p>
+            </div>
+        </div>
+
+        <div class="traversal-bar">
+            <span class="traversal-label">Traversal:</span>
+            <button class="btn btn-sm" onclick="showTraversal('inorder')">In-Order</button>
+            <button class="btn btn-sm" onclick="showTraversal('preorder')">Pre-Order</button>
+            <button class="btn btn-sm" onclick="showTraversal('postorder')">Post-Order</button>
+            <span class="traversal-result" id="traversalResult"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
